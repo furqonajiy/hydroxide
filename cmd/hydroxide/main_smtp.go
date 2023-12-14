@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/emersion/hydroxide/auth"
 	smtpbackend "github.com/emersion/hydroxide/smtp"
 	"log"
@@ -8,6 +9,9 @@ import (
 )
 
 func main() {
+	sendmailCmd := flag.NewFlagSet("sendmail", flag.ExitOnError)
+	rcpt := sendmailCmd.Args()
+
 	bridgePassword := "DUMMY_PASSWORD"
 	username := "DUMMY_USERNAME"
 
