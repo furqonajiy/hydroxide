@@ -172,8 +172,11 @@ func SendMail(c *protonmail.Client, u *protonmail.User, privateKeys openpgp.Enti
 
 	var body *bytes.Buffer
 	var bodyType string
+
+	// Create attachmentKeys a map
 	attachmentKeys := make(map[string]*packet.EncryptedKey)
 
+	// do while
 	for {
 		p, err := mr.NextPart()
 		if err == io.EOF {
